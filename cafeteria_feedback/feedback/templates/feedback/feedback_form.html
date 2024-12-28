@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafeteria Feedback</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+      }
+      header {
+        background-color: #4caf50;
+        color: white;
+        padding: 15px 20px;
+        text-align: center;
+      }
+      .container {
+        padding: 20px;
+        max-width: 800px;
+        margin: auto;
+      }
+      .menu {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+      .menu h2 {
+        margin-top: 0;
+      }
+      .menu-item {
+        margin-bottom: 10px;
+      }
+      form {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      form textarea,
+      form input,
+      form button,
+      form label {
+        display: block;
+        width: 97%;
+        margin-bottom: 10px;
+      }
+      form textarea,
+      form input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      form button {
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      form button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Dhanekula Cafeteria Feedback</h1>
+      <p>Your opinions matter! Help us improve our services.</p>
+    </header>
+    <div class="container">
+      <div class="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-item">Idly - 30rs</div>
+        <div class="menu-item">Puri - 30rs</div>
+        <div class="menu-item">Punugu - 30rs</div>
+        <div class="menu-item">Bajji - 30rs</div>
+        <div class="menu-item">Plain dosa - 30rs</div>
+        <div class="menu-item">Onion dosa - 35rs</div>
+        <div class="menu-item">Egg dosa - 40rs</div>
+        <div class="menu-item">Chapathi - 30rs</div>
+        <div class="menu-item">Parota - 30rs</div>
+        <div class="menu-item">Meals - 60rs</div>
+        <div class="menu-item">Veg biryani(only Friday) - 60rs</div>
+        <div class="menu-item">Veg fried rice - 50rs</div>
+        <div class="menu-item">Veg noodles - 50rs</div>
+        <div class="menu-item">Veg manchuriya - 60rs</div>
+        <div class="menu-item">Egg noodles - 60rs</div>
+        <div class="menu-item">Egg fried rice - 60rs</div>
+        <div class="menu-item">Egg manchuriya - 80rs</div>
+        <div class="menu-item">Chicken fried rice - 70rs</div>
+        <div class="menu-item">Chicken manchuriya - 100rs</div>
+        <div class="menu-item">Tea - 12rs</div>
+        <div class="menu-item">Coffee - 12rs</div>
+        <div class="menu-item">Special tea - 15rs</div>
+        <div class="menu-item">Boost - 15rs</div>
+        <div class="menu-item">Soft Drinks - 20rs</div>
+        <div class="menu-item">Dum biryani(only wednesday) - 150rs</div>
+        <div class="menu-item">Egg fry(curry) - 20rs</div>
+        <div class="menu-item">Omelette - 20rs</div>
+      </div>
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit">Submit Feedback</button>
+      </form>
+    </div>
+    <script>
+      const feedbackForm = document.getElementById("feedbackForm");
+
+      feedbackForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const issue = document.getElementById("issue").value.trim();
+          const name = document.getElementById("name").value.trim();
+          const photo = document.getElementById("photo").files[0];
+
+          if (issue === "") {
+              alert("Please mention your issue before submitting.");
+          } else {
+              let message = Thank you ${name || "Anonymous"} for your feedback!\n\nIssue: ${issue};
+              if (photo) {
+                  message += \nPhoto attached: ${photo.name};
+              }
+              alert(message);
+              feedbackForm.reset();
+          }
+      });
+    </script>
+  </body>
+</html>
