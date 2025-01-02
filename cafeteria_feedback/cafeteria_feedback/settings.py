@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-#_uq+o$q#9^9nt=6fdlz%+@83z&qw!170y$yjwr$p^y(158!+7
 DEBUG = True
 
 ALLOWED_HOSTS = ['https://abhiram58.pythonanywhere.com/',
-'.vercel.app',
+'https://cafeteria-7pbb.vercel.app/',
 'http://127.0.0.1:8000/',
 '127.0.0.1']
 #error
