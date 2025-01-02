@@ -29,7 +29,7 @@ ALLOWED_HOSTS = ['https://abhiram58.pythonanywhere.com/',
 '.vercel.app',
 'http://127.0.0.1:8000/',
 '127.0.0.1']
-
+#error
 
 # Application definition
 
