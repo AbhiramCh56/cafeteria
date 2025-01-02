@@ -1,7 +1,7 @@
 {
   "builds": [
     {
-      "src": "cafeteria_feedback/wsgi.py",
+      "src": "cafeteria_feedback/cafeteria_feedback/wsgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     }
@@ -9,7 +9,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "cafeteria_feedback/wsgi.py"
+      "dest": "cafeteria_feedback/cafeteria_feedback/wsgi.py"
     }
   ]
 }
